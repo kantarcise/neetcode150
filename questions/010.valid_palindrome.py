@@ -11,29 +11,32 @@ false otherwise.
 
 Example 1:
 
-Input: s = "A man, a plan, a canal: Panama"
-Output: true
-Explanation: "amanaplanacanalpanama" is a palindrome.
+    Input: s = "A man, a plan, a canal: Panama"
+    Output: true
+    
+    Explanation: "amanaplanacanalpanama" is a palindrome.
 
 Example 2:
 
-Input: s = "race a car"
-Output: false
-Explanation: "raceacar" is not a palindrome.
+    Input: s = "race a car"
+    Output: false
+    
+    Explanation: "raceacar" is not a palindrome.
 
 Example 3:
 
-Input: s = " "
-Output: true
-Explanation: s is an empty string "" after removing 
-    non-alphanumeric characters.
-    Since an empty string reads the same forward and 
-    backward, it is a palindrome.
+    Input: s = " "
+    Output: true
+    
+    Explanation: s is an empty string "" after removing 
+        non-alphanumeric characters.
+        Since an empty string reads the same forward and 
+        backward, it is a palindrome.
 
 """
 
 class Solution:
-    def isPalindrome(self, s:str):
+    def isPalindrome_(self, s:str):
         # we can simply use string methods.
 
         result_string = ""
@@ -45,7 +48,7 @@ class Solution:
         return result_string == result_string[::-1]
 
 
-    def isPalindrome_(self, s: str):
+    def isPalindrome(self, s: str):
         # we can use two pointers and not worry about 
         # reversing the string
         
@@ -91,16 +94,17 @@ class Solution:
             (ord("a") <= ord(s) <= ord("z")) or \
             (ord("0") <= ord(s) <= ord("9"))
 
-sol = Solution()
+if __name__ == '__main__':
+    sol = Solution()
 
-# simple approach
-print(sol.isPalindrome(s = "A man, a plan, a canal: Panama"))
-print(sol.isPalindrome(s = "race a car"))
+    # best approach ?
+    print(sol.isPalindrome(s = "A man, a plan, a canal: Panama"))
+    print(sol.isPalindrome(s = "race a car"))
 
-# second approach
-print(sol.isPalindrome_(s = "A man, a plan, a canal: Panama"))
-print(sol.isPalindrome_(s = "race a car"))
+    # second approach - string methods
+    print(sol.isPalindrome_(s = "A man, a plan, a canal: Panama"))
+    print(sol.isPalindrome_(s = "race a car"))
 
-# third approach, our own alphanumeric function
-print(sol.isPalindrome__(s = "A man, a plan, a canal: Panama"))
-print(sol.isPalindrome__(s = "race a car"))
+    # third approach, our own alphanumeric function
+    print(sol.isPalindrome__(s = "A man, a plan, a canal: Panama"))
+    print(sol.isPalindrome__(s = "race a car"))

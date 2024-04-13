@@ -13,29 +13,32 @@ You must implement a solution with O(1) time complexity for each function.
 
 Example 1:
 
-Input
-["MinStack","push","push","push","getMin","pop","top","getMin"]
-[[],[-2],[0],[-3],[],[],[],[]]
+    Input:
 
-Output
-[null,null,null,null,-3,null,0,-2]
+        ["MinStack","push","push","push","getMin","pop","top","getMin"]
+        [[],[-2],[0],[-3],[],[],[],[]]
 
-Explanation:
+    Output:
+        [null,null,null,null,-3,null,0,-2]
 
-MinStack minStack = new MinStack();
-minStack.push(-2);
-minStack.push(0);
-minStack.push(-3);
-minStack.getMin(); // return -3
-minStack.pop();
-minStack.top();    // return 0
-minStack.getMin(); // return -2
+    Explanation:
+
+        MinStack minStack = new MinStack();
+        minStack.push(-2);
+        minStack.push(0);
+        minStack.push(-3);
+        minStack.getMin(); // return -3
+        minStack.pop();
+        minStack.top();    // return 0
+        minStack.getMin(); // return -2
 
 Constraints:
 
     -2^31 <= val <= 2^31 - 1
+    
     Methods pop, top and getMin operations will always 
         be called on non-empty stacks.
+    
     At most 3 * 10^4 calls will be made to push, pop, top, and getMin.
 
 Takeaway:
@@ -82,7 +85,6 @@ class MinStack:
         return self._min_stack[-1]
 
 
-
 """Or you can use Linked Based Sequence"""
 class Node:
     def __init__(self, value, min_value, next_node=None):
@@ -120,7 +122,6 @@ class MinStackLL:
             # head node holds the min value.
             return self.head.min_value
         
-
 # obj = MinStack()
 # obj.push(4)
 # obj.push(7)
@@ -128,3 +129,27 @@ class MinStackLL:
 # obj.pop()
 # param_3 = obj.top()
 # param_4 = obj.getMin()
+
+if __name__ == '__main__':
+    
+    print("Array approach")
+    
+    obj = MinStack()
+    obj.push(-2)
+    obj.push(0)
+    obj.push(-3)
+    print(obj.getMin())
+    print(obj.pop())
+    print(obj.top())
+    print(obj.getMin())
+
+    print("LL Approach")
+
+    linked = MinStackLL()
+    linked.push(-2)
+    linked.push(0)
+    linked.push(-3)
+    print(linked.getMin())
+    print(linked.pop())
+    print(linked.top())
+    print(linked.getMin())

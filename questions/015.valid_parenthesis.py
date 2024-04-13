@@ -12,18 +12,18 @@ Every close bracket has a corresponding open bracket of the same type.
 
 Example 1:
 
-Input: s = "()"
-Output: true
+    Input: s = "()"
+    Output: true
 
 Example 2:
 
-Input: s = "()[]{}"
-Output: true
+    Input: s = "()[]{}"
+    Output: true
 
 Example 3:
 
-Input: s = "(]"
-Output: false
+    Input: s = "(]"
+    Output: false
 
 Constraints:
 
@@ -67,7 +67,9 @@ class Solution:
         # if stack is empty in the end, all matched
         return not bool(stack)
 
-    def is_valid_improved(self, s: str) -> bool:
+    def isValid_(self, s: str) -> bool:
+        # a better solution ? 
+
         matching_symbols = { ')': '(',
                              ']': '[',
                              '}': '{'  }
@@ -89,10 +91,11 @@ class Solution:
                 
         return len(_stack) ==  0
 
-sol = Solution()
-print(sol.isValid(s = "()"))
-print(sol.isValid(s = "()[]{}"))
-print(sol.isValid(s = "(]"))
-print(sol.is_valid_improved(s = "()"))
-print(sol.is_valid_improved(s = "()[]{}"))
-print(sol.is_valid_improved(s = "(]"))
+if __name__ == "__main__":
+    sol = Solution()
+    print(sol.isValid(s = "()"))
+    print(sol.isValid(s = "()[]{}"))
+    print(sol.isValid(s = "(]"))
+    print(sol.isValid_(s = "()"))
+    print(sol.isValid_(s = "()[]{}"))
+    print(sol.isValid_(s = "(]"))

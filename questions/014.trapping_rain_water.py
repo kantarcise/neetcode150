@@ -50,6 +50,8 @@ class Solution:
 
     def trap_(self, height):
         # my first try, DOES NOT WORK
+
+        # this was a bad idea.
         
         # to be able to trap water, we need at least 2 unit width 
         # and 1 unit height difference

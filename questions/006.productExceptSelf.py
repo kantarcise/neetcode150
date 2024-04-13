@@ -1,27 +1,50 @@
 """
-Q: Given an integer array nums, return an array 
-answer such that answer[i] is equal to the product 
-of all the elements of nums except nums[i].
+Given an integer array nums, return an array answer such that 
+answer[i] is equal to the product of all the elements of nums except nums[i].
 
-The product of any prefix or suffix of 
-nums is guaranteed to fit in a 32-bit integer.
+The product of any prefix or suffix of nums is guaranteed 
+to fit in a 32-bit integer.
 
-You must write an algorithm that runs in O(n) time 
-and without using the division operation.
+You must write an algorithm that runs in O(n) time and 
+without using the division operation.
 
-**Input:** nums = [1,2,3,4]
-**Output:** [24,12,8,6]
+Example 1:
 
-**Input:** nums = [-1,1,0,-3,3]
-**Output:** [0,0,9,0,0]
+    Input: nums = [1,2,3,4]
+    Output: [24,12,8,6]
+
+
+Example 2:
+
+    Input: nums = [-1,1,0,-3,3]
+    Output: [0,0,9,0,0]
+ 
+Constraints:
+
+    2 <= nums.length <= 10^5
+    -30 <= nums[i] <= 30
+    
+    The product of any prefix or suffix of nums is 
+        guaranteed to fit in a 32-bit integer.
+ 
+
+Follow up: Can you solve the problem in O(1) extra space complexity? 
+(The output array does not count as extra space for space complexity analysis.)
+
+Takeaway:
+
+    If you multiply every element to the left and to the right, 
+    you will get the product of all elements.
 
 """
 
 import random
+
+# for an extra test
 from time import perf_counter_ns
 
 class Solution:
-    def productExceptSelfBruteForce(self, nums: list[int]) -> list[int]:
+    def productExceptSelf_(self, nums: list[int]) -> list[int]:
         # can we brute force it?
         # yeah, but it is not o(n), here it is anyway
         n = len(nums)
@@ -72,24 +95,23 @@ class Solution:
 
         return result
 
-sol = Solution()
 
-print(sol.productExceptSelfBruteForce(nums = [1,2,3,4]))
-print(sol.productExceptSelfBruteForce(nums = [-1,1,0,-3,3]))
-
-# this will not finish for a while.
-a = perf_counter_ns()
-print(sol.productExceptSelfBruteForce(random.sample(range(1,234623576), 2700)))
-b = perf_counter_ns()
-print(F"Brute force took {(b - a) // 1e9} seconds")
-# Brute force took 24.0 seconds
-
-print(sol.productExceptSelf(nums = [1,2,3,4]))
-print(sol.productExceptSelf(nums = [-1,1,0,-3,3]))
-
-# this will work!
-c = perf_counter_ns()
-print(sol.productExceptSelf(random.sample(range(1,234623576), 2700)))
-d = perf_counter_ns()
-print(F"Linear Time solution took {(d - c) // 1e9} seconds")
-# Linear Time solution took 19.0 seconds
+if __name__ == "__main__":
+    sol = Solution()
+    
+    print(sol.productExceptSelf_(nums = [1,2,3,4]))
+    print(sol.productExceptSelf_(nums = [-1,1,0,-3,3]))
+    
+    a = perf_counter_ns()
+    print(sol.productExceptSelf_(random.sample(range(1,234623576), 30)))
+    b = perf_counter_ns()
+    print(F"Brute force took {(b - a)} nanoseconds")
+    
+    print(sol.productExceptSelf(nums = [1,2,3,4]))
+    print(sol.productExceptSelf(nums = [-1,1,0,-3,3]))
+    
+    # this will work!
+    c = perf_counter_ns()
+    print(sol.productExceptSelf(random.sample(range(1,234623576), 30)))
+    d = perf_counter_ns()
+    print(F"Linear Time solution took {(d - c)} nanoseconds")

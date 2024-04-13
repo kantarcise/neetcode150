@@ -1,46 +1,68 @@
 """
-Q: Design an algorithm to encode a list of strings 
-to a string. The encoded string is then sent 
-over the network and is decoded back to the 
-original list of strings.
+Design an algorithm to encode a list of strings to a string.
 
-Please implement encode and decode.
+The encoded string is then sent over the network and is 
+decoded back to the original list of strings.
 
-Input: ["lint","code","love","you"]
-Output: ["lint","code","love","you"]
-Explanation:
-One possible encode method is: "lint:;code:;love:;you"
+Implement encode and decode.
 
-Input: ["we", "say", ":", "yes"]
-Output: ["we", "say", ":", "yes"]
-Explanation:
-One possible encode method is: "we:;say:;:::;yes"
+Example 1:
+
+    Input: ["lint","code","love","you"]
+    Output: ["lint","code","love","you"]
+
+    Explanation:
+
+        One possible encode method is: "lint:;code:;love:;you"
+
+
+Example 2:
+
+    Input: ["we", "say", ":", "yes"]
+    Output: ["we", "say", ":", "yes"]
+
+    Explanation:
+        
+        One possible encode method is: "we:;say:;:::;yes"
+
+
+Takeaway:
+
+    THe description is not really complete.
+
+    We are trying to encode decode stateless. So we somehow need to 
+        clarify the word lenghts while we are trasporting them.
+
+    for that we can use the lenght of the words and sent them prior
+        to the encoded words.
+
+    When we are decoding, we will know how many indexes we need to be 
+        looking for, simply using the length.
 
 """
 
 class Solution:
-    def encode_(self, strs: list) -> str:
-        # just join all elements in the given list
-        return "~".join(strs)
+
+    # MY FIRST TRY
     
-    def decode_(self, string: str) -> list:
-        # take the incoming string and split it based on 
-        # your special character
-        return string.split("~")
+    def encode(self, strs: list) -> str:
+        """
+        @param: strs: a list of strings
+        @return: encodes a list of strings to a single string.
+        """
+        return "~".join(strs)
+
+
+    def decode(self, str: str) -> list:
+        """
+        @param: str: A string
+        @return: decodes a single string to a list of strings
+        """
+        # write your code here
+        return str.split("~")
+
 
     def encode_stateless(self, strs: list) -> str:
-        # how about we solve the question, stateless?
-        
-        # So we somehow need to 
-        # clarify the word lenghts while we are trasporting them.
-
-        # For that we can use the lenght of the words and 
-        # sent them prior to the encoded words.
-
-        # When we are decoding, we will know how many 
-        # indexes we need to be 
-        # looking for, simply using the length.
-        
         result = ""
 
         for elem in strs:
@@ -52,20 +74,18 @@ class Solution:
         return result
 
     def decode_stateless(self, input_string: str) -> list:
-        # we will populate this result
+        # we will populate this result list
         result = []
-
         # string starting index
         i = 0
-
+        
         # until you are end of the string
         while i < len(input_string):
-            # This index holds width for the length 
-            # of the word
+            # this index holds width for the length of the word
             j = i
             while input_string[j] != "#":
                 j += 1
-
+            
             length = int(input_string[i:j])
             result.append(input_string[j+1: j+1+length])
             
@@ -73,18 +93,19 @@ class Solution:
             i = j + 1 + length
         return result
 
-sol = Solution()
 
-# this is simple and pretty cool
-encoded_list = sol.encode_(["lint","code","love","you"])
-print("Here is the simple version, decoded:")
-print(sol.decode_(encoded_list))
 
-# here is the stateless version
-print("\n Stateless Version:")
-another_encoded_list = \
-    sol.encode_stateless(["lint","code","love","you"])
+if __name__ == "__main__":
+    sol = Solution()
 
-print(f"Here is encoded version: {another_encoded_list}")
-print(f"And the result of decoding: \
-            {sol.decode_stateless(another_encoded_list)}")
+    list_of_strings = ["lint","code","love","you"]
+    encoded = sol.encode(list_of_strings)
+    decoded = sol.decode(encoded)
+    print(f"Original list {list_of_strings}, after process {decoded}")
+
+    print("\nCool solution:\n")
+
+
+    encoded_stateless = sol.encode_stateless(list_of_strings)
+    decoded_stateless = sol.decode_stateless(encoded_stateless)
+    print(f"Original list {list_of_strings}, after process {decoded}")
