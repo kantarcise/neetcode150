@@ -18,8 +18,6 @@ Keep going.
 
 ### Arrays & Hashing
 
-9 Questions.
-
 Starts With -> 001.containsDuplicate.py
 
 Ends With -> 009.longestConsecutive.py
