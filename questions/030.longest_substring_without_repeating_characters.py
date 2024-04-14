@@ -82,7 +82,7 @@ class Solution:
 
         result = 0
 
-        # fowr the sliding window, we will be needing two pointers
+        # for the sliding window, we will be needing two pointers
         l  = 0
         # right pointer will be changing
         for r in range(len(s)):

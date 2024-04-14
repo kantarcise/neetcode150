@@ -134,5 +134,6 @@ if __name__ == "__main__":
     print(sol.characterReplacement_(s = "AABABBA", k = 1))
     print(sol.characterReplacement_("ABAB", k = 2))
 
+    print()
     print(sol.characterReplacement(s = "AABABBA", k = 1))
     print(sol.characterReplacement("ABAB", k = 2))

@@ -110,3 +110,7 @@ class Solution:
         
         # Either rob the first house or don't
         return max(rob_linear(nums[:-1]), rob_linear(nums[1:]))
+
+
+sol = Solution()
+print(sol.rob(nums = [1,2,3,1])) # 4

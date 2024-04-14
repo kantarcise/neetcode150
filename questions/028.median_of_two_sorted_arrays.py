@@ -162,6 +162,8 @@ class Solution:
 
 if __name__ == '__main__':
     sol = Solution()
+
+    print("This is not True")
     print(sol.findMedianSortedArrays__(nums1 = [1,3], nums2 = [2]))
     print(sol.findMedianSortedArrays__([1,2], nums2 = [3,4]))
 

@@ -72,3 +72,6 @@ class Solution:
             # rob2 becomes the temp
             rob2 = temp
         return rob2
+    
+sol = Solution()
+print(sol.rob(nums = [2,7,9,3,1])) # 12

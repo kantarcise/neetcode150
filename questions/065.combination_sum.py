@@ -135,4 +135,4 @@ class Solution:
 
 if __name__ == "__main__":
     sol = Solution()
-    print(sol.combinationSum())
+    print(sol.combinationSum(candidates = [2,3,6,7], target = 7))

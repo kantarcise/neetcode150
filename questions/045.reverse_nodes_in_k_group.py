@@ -64,7 +64,7 @@ class ListNode:
 class Solution:
 
     def reverseKGroup(self, head, k):
-        # neet
+        # works
         
         # Make a dummy node and set it as the previous 
         # node for the first group

@@ -127,6 +127,7 @@ if __name__ == "__main__":
     print(sol.permute(nums = [0,1]))
     print(sol.permute(nums = [1]))
 
+    print()
     print(sol.permute_(nums = [1,2,3]))
     print(sol.permute_(nums = [0,1]))
     print(sol.permute_(nums = [1]))

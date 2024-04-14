@@ -90,6 +90,7 @@ class Solution:
 
 if __name__ == "__main__":
     sol = Solution()
+    print("This does not work")
     print(sol.maxProfit(prices = [7,1,5,3,6,4])) 
     print(sol.maxProfit(prices = [7,6,4,3,1]))
 

@@ -117,6 +117,7 @@ if __name__ == "__main__":
     print(sol.checkInclusion_( s1 = "ab", s2 = "eidboaoo"))
     print(sol.checkInclusion_( s1 = "hello", s2 = "ooolleoooleh"))
 
+    print()
     print(sol.checkInclusion(s1 = "ab", s2 = "eidbaooo"))
     print(sol.checkInclusion( s1 = "ab", s2 = "eidboaoo"))
     print(sol.checkInclusion( s1 = "hello", s2 = "ooolleoooleh"))
